@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Обработка заказов</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="lib/bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="lib/bootstrap-3.3.6-dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+        <style>
+            body {
+                padding: 35px;
+            }
+            .block-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: #E6E6E6;
+                opacity: 0.7;
+                z-index: 100;
+                cursor: wait;
+                display: block;
+            }
+
+            .block-message {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin-top: -34px;
+                margin-left: -34px;
+                background-image: url('img/loader.gif');
+                background-position: center center;
+                background-repeat: no-repeat;
+                width: 64px;
+                height: 64px;
+                z-index: 115;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <h3>Обработка заказов</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 col-md-offset-1">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Заказы <span class="badge">0</span></h3>
+                        </div>
+                        <div class="list-group" id="orders">
+                            <!--button type="button" class="list-group-item">Заказ 123. Столик 4</button-->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7 col-md-offset-1">
+                    <div class="panel panel-success hidden" id="panelOrder">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Заказ номер 1</h3>
+                        </div>
+                        <div class="panel-body">
+                            Описание заказа
+                        </div>
+                        <div class="panel-footer">Итого: <span class="badge">424 &#8381;</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="orderModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">title</h4>
+                    </div>
+                    <div class="modal-body">
+                        <span class="small">Заказ №<strong id="orderId">0</strong> время: <strong id="time">0</strong></span>
+                        <p id="content">
+                        </p>
+                        <div class="row">
+                            <div class="col-md-12"><hr>Итого: <span class="badge" id="price">12345</span> &#8381;</div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                        <button type="button" class="btn btn-success" data-success="" data-dismiss="modal">Выполнить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="lib/jquery-1.12.1.min.js" type="text/javascript"></script>
+        <script src="lib/bootstrap-3.3.6-dist/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="js/application.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                APP.init({
+//                    login: 'VKoshkarov'
+                });
+            });
+        </script>
+    </body>
+</html>
